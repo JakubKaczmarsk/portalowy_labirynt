@@ -26,11 +26,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
-    }
-    private void CheckGround()
-    {
         RaycastHit hit;
-        if (Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down),out hit, 0.4f, GroundMask))
+        if (Physics.Raycast(groundCheck.position, transform.TransformDirection(Vector3.down), out hit, 0.4f, GroundMask))
         {
             string terrainType = hit.collider.gameObject.tag;
             switch (terrainType)
@@ -48,3 +45,4 @@ public class PlayerController : MonoBehaviour
         }
     }
 } 
+
