@@ -167,6 +167,7 @@ GameObject:
   - component: {fileID: 526222929}
   - component: {fileID: 526222932}
   - component: {fileID: 526222933}
+  - component: {fileID: 526222934}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -276,13 +277,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 526222927}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3510ace6eee1fca40a7cfd6dcb06bd51, type: 3}
+  m_Script: {fileID: 11500000, guid: 2089ccf48f1176a47b125715bcf35620, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeToEnd: 100
+--- !u!114 &526222934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526222927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e887e6dbaccfe1499eb0d9f8b6de3d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
-  controller: {fileID: 0}
   groundCheck: {fileID: 1286779222}
-  GroundMask:
+  groundMask:
+    serializedVersion: 2
     m_Bits: 8
 --- !u!1 &567897280
 GameObject:
@@ -631,13 +645,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 799776269}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49674785ce1399143826342b9ea7beba, type: 3}
+  m_Script: {fileID: 11500000, guid: 2089ccf48f1176a47b125715bcf35620, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   timeToEnd: 100
-  gamePause: 0
-  endGame: 0
-  win: 0
 --- !u!1 &800014991
 GameObject:
   m_ObjectHideFlags: 0
@@ -953,12 +964,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ac3bb5cd9078484caa5f834105947aa, type: 3}
+  m_Script: {fileID: 11500000, guid: 6605b803d90adba49a11787c1906ba91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   mouseSensitivity: 100
-  playerBody: {fileID: 0}
-  xRotation: 0
 --- !u!1 &1055986779
 GameObject:
   m_ObjectHideFlags: 0
@@ -971,8 +980,9 @@ GameObject:
   - component: {fileID: 1055986782}
   - component: {fileID: 1055986781}
   - component: {fileID: 1055986780}
+  - component: {fileID: 1055986784}
   m_Layer: 0
-  m_Name: Pickup (1)
+  m_Name: PickupCrystal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1064,6 +1074,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1055986784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1055986779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6147cffc062b8134f94a25502660f33b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: {x: 0, y: 0, z: 0}
+  points: 5
 --- !u!1 &1286779221
 GameObject:
   m_ObjectHideFlags: 0

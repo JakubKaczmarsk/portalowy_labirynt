@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public void AddTime(int timeToAdd)
     {
         timeToEnd += timeToAdd;
+        Debug.Log($"{points}");
     }
     public void FreezeTime(int FrizzeFor)
     {
