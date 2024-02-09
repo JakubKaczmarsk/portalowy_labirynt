@@ -12,10 +12,12 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         playerBody = transform.parent;
     }
+
     private void Update()
     {
         CameraRotation();
     }
+
     private void CameraRotation()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
