@@ -3,12 +3,27 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance { get; private set; }
     [SerializeField]
-    private float speed = 12f;
+    public float speed = 12f;
+    public float speedMultiplayer { get; private set; } = 1f;
     private CharacterController controller;
 
     public Transform groundCheck;
     public LayerMask groundMask;
+
+    public void SetSpeedMultiplier(float speedMultiplier)
+    {
+        this.speedMultiplier = speedMultiplier;
+    }
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
 
     private void Start()
     {
@@ -40,13 +55,13 @@ public class PlayerController : MonoBehaviour
             switch (terrainType)
             {
                 default:
-                    speed = 12f;
+                    speed = 12f * speedMultiplayer;
                     break;
                 case "Low":
-                    speed = 3f;
+                    speed = 3f * speedMultiplayer;
                     break;
                 case "High":
-                    speed = 20f;
+                    speed = 20f * speedMultiplayer;
                     break;
             }
         }
