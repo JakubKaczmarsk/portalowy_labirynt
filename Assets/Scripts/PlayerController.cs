@@ -11,11 +11,8 @@ public class PlayerController : MonoBehaviour
 
     public Transform groundCheck;
     public LayerMask groundMask;
+       
 
-    public void SetSpeedMultiplier(float speedMultiplier)
-    {
-        this.speedMultiplier = speedMultiplier;
-    }
 
     private void Awake()
     {
