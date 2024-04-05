@@ -346,6 +346,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickupKeyRed
       objectReference: {fileID: 0}
+    - target: {fileID: 3357118267352688648, guid: cbe3000d2b1abca4b98744cf9e84278a, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9089229421908541228, guid: cbe3000d2b1abca4b98744cf9e84278a, type: 3}
       propertyPath: m_LocalScale.y
       value: 0.1
