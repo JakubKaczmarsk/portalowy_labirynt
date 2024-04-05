@@ -24,6 +24,18 @@ public class Levelenerator : MonoBehaviour
                 Vector3 position = new Vector3(x * offset,0,z * offset);
                 Instantiate(colorMapping.prefab, position, Quaternion.identity);
             }
+
         }
     }
+    public void GenerateLabirynth()
+    {
+        for(int x = 0; x < map.width; x++)
+        {
+            for(int z = 0; z < map.height; z++)
+            {
+                GenerateTile(x, z);
+            }
+        }
+    }
+
 }
