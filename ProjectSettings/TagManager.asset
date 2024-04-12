@@ -6,6 +6,9 @@ TagManager:
   tags:
   - low
   - high
+  - High
+  - Low
+  - wall
   layers:
   - Default
   - TransparentFX

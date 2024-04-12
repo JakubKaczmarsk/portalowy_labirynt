@@ -21,10 +21,12 @@ public class LevelGenerator : MonoBehaviour
 
         foreach (ColorToPrefub colorMapping in colorMapping)
         {
-            if (colorMapping.color.Equals(pixelColor))
+            if (/*colorMapping.color.Equals(pixelColor*/ pixelColor.r - 0.004 <= colorMapping.color.r && pixelColor.r + 0.004 >= colorMapping.color.r
+                && pixelColor.g - 0.004 <= colorMapping.color.g && pixelColor.g + 0.004 >= colorMapping.color.g
+                && pixelColor.b - 0.004 <= colorMapping.color.b && pixelColor.b + 0.004 >= colorMapping.color.b)
             {
                 Vector3 position = new Vector3(x * offset, 0, z * offset);
-                Instantiate(colorMapping.prefab, position, Quaternion.identity);
+                Instantiate(colorMapping.prefab, position, Quaternion.identity, transform);
             }
 
         }
@@ -38,28 +40,27 @@ public class LevelGenerator : MonoBehaviour
                 GenerateTile(x, z);
             }
         }
-
+        ColorTheChildren();
 
     }
-  /*  public void ColorTheChildern()
+    public void ColorTheChildren()
     {
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
-            if(child.tag == "Wall")
+            if (child.tag == "wall")
             {
-                if (Random(1, 100) % 3 == 0)
+                foreach (Transform subChild in child)
                 {
-                    child.gameObject.GetComponent<Renderer>().material = material1;
+                    if (Random.Range(1, 100) % 3 == 0)
+                    {
+                        subChild.gameObject.GetComponent<Renderer>().material = material1;
+                    }
+                    else
+                    {
+                        subChild.gameObject.GetComponent<Renderer>().material = material2;
+                    }
                 }
-                else
-                {
-                    child.gameObject.GetComponent<Renderer>().material = material2;
-                }
-            }
-            if(child.childCount > 0)
-            {
-
             }
         }
-    }*/
+    }
 }

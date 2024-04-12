@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f789f5e8a3c2f84dab435f9519c8675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  material1: {fileID: 0}
-  material2: {fileID: 0}
+  material1: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
+  material2: {fileID: 2100000, guid: 4b2e1034cd46f8747bf8781b4caea97b, type: 2}
   map: {fileID: 2800000, guid: 04e8621fa994575499ffc9848a56e574, type: 3}
   colorMapping:
   - color: {r: 0.43529412, g: 0.43529412, b: 0.43529412, a: 0}
@@ -179,7 +179,7 @@ MonoBehaviour:
     prefab: {fileID: 2589551297192794898, guid: 08bf4580bff20cb46892ebeb8cf319a1, type: 3}
   - color: {r: 0, g: 0, b: 0, a: 0}
     prefab: {fileID: 5823953122531787989, guid: 0c68a1d9f68d67e41b4d3985b590c6b7, type: 3}
-  offset: 5
+  offset: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
