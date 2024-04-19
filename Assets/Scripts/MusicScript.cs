@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class MusicScript : MonoBehaviour
 {
-    public AudioClip[] audioClips { get; private set; }
+    [SerializeField]
+    private AudioClip[] audioClips;
 
     private AudioSource audioSorce;
     private double pauseClipTime = 0;
