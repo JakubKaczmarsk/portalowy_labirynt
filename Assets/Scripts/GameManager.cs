@@ -14,6 +14,16 @@ public class GameManager : MonoBehaviour
     public bool gameEnded { get; private set; }
     public bool gameWon { get; private set; }
 
+    private AudioSource audioSorce;
+    [SerializeField]
+    private AudioSource pauseClip;
+    [SerializeField]
+    private AudioSource resumeClip;
+    [SerializeField]
+    private AudioSource winClip;
+    [SerializeField]
+    private AudioSource loseClip;
+
     public void AddKey(KeyColor keyColor)
     {
         keys[(int)keyColor]++;
@@ -47,11 +57,19 @@ public class GameManager : MonoBehaviour
         gameEnded = false;
         gameWon = false;
 
+        audioSorce = GetComponent<AudioSource>();
+
         if (timeToEnd <= 0)
         {
             timeToEnd = 180;
         }
         InvokeRepeating(nameof(Stopper), 1, 1);
+    }
+
+    public void PlayClip(AudioClip playClip)
+    {
+        audioSorce.clip = playClip;
+        audioSorce.Play();
     }
 
     private void Update()
