@@ -16,13 +16,28 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSorce;
     [SerializeField]
-    private AudioSource pauseClip;
+    private AudioClip pauseClip;
     [SerializeField]
-    private AudioSource resumeClip;
+    private AudioClip resumeClip;
     [SerializeField]
-    private AudioSource winClip;
+    private AudioClip winClip;
     [SerializeField]
-    private AudioSource loseClip;
+    private AudioClip loseClip;
+
+    [SerializeField]
+    private MusicScript musicScript;
+
+    private bool lessTime = false;
+
+    public void PlayClip(AudioClip playClip)
+    {
+        if (playClip == null)
+        {
+            return;
+        }
+        audioSorce.clip = playClip;
+        audioSorce.Play();
+    }
 
     public void AddKey(KeyColor keyColor)
     {
@@ -66,10 +81,14 @@ public class GameManager : MonoBehaviour
         InvokeRepeating(nameof(Stopper), 1, 1);
     }
 
-    public void PlayClip(AudioClip playClip)
+    public void lessTimeOn()
     {
-        audioSorce.clip = playClip;
-        audioSorce.Play();
+        musicScript.PitchThis(1.5f);
+    }
+
+    public void lessTimeOff()
+    {
+        musicScript.PitchThis(1f);
     }
 
     private void Update()
@@ -82,10 +101,12 @@ public class GameManager : MonoBehaviour
         CancelInvoke(nameof(Stopper));
         if(gameWon)
         {
+            PlayClip(winClip);
             Debug.Log("You won!");
         }
         else
         {
+            PlayClip(loseClip);
             Debug.Log("You lost!");
         }
     }
@@ -105,10 +126,22 @@ public class GameManager : MonoBehaviour
         {
             EndGame();
         }
+
+        if (timeToEnd <= 30 && !lessTime)
+        {
+            lessTimeOn();
+            lessTime = true;
+        }
+        else if (timeToEnd > 30 && lessTime)
+        {
+            lessTimeOff();
+            lessTime = false;
+        }
     }
 
     public void PauseGame()
     {
+        PlayClip(pauseClip);
         Debug.Log("Game Paused");
         Time.timeScale = 0;
         gamePaused = true;
@@ -116,6 +149,7 @@ public class GameManager : MonoBehaviour
 
     public void ResumeGame()
     {
+        PlayClip(resumeClip);
         Debug.Log("Game Resumed");
         Time.timeScale = 1;
         gamePaused = false;
