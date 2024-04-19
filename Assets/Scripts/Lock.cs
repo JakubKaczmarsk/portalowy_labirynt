@@ -6,12 +6,19 @@ public class Lock : MonoBehaviour
 {
     public Door[] doors;
     public KeyColor myColor;
+    public Renderer myLock;
+
+    public Material red;
+    public Material green;
+    public Material blue;
+
     private bool canOpen = false;
     private bool locked = false;
     private Animator key;
 
     private void Start()
     {
+        SetMyColor();
         key = GetComponent<Animator>();
     }
 
@@ -76,6 +83,20 @@ public class Lock : MonoBehaviour
             door.Open();
         }
     }
-
+    private void SetMyColor()
+    {
+        switch (myColor)
+        {
+            case KeyColor.Red:
+                myLock.material = red;
+                break;
+            case KeyColor.Green:
+                myLock.material = green;
+                break;
+            case KeyColor.Blue:
+                myLock.material = blue;
+                break;
+        }
+    }
 
 }
