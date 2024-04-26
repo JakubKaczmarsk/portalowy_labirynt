@@ -38,6 +38,7 @@ public class PickupKeys : Pickup
                 break;
             case KeyColor.Blue:
                 GetComponent<Renderer>().material = blue;
+                break;
         }
     }
 }
