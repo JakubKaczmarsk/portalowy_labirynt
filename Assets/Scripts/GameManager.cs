@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,18 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private MusicScript musicScript;
 
+    public Text timeText;
+    public Text pointText;
+    public Text redKeyText;
+    public Text greenKeyText;
+    public Text blueKeyText;
+    public Image snowflake;
+
+    public GameObject infoPanel;
+    public Text infoText;
+    public Text reloadInfo;
+    public Text useInfo;
+
     private bool lessTime = false;
 
     public void PlayClip(AudioClip playClip)
@@ -42,22 +55,39 @@ public class GameManager : MonoBehaviour
     public void AddKey(KeyColor keyColor)
     {
         keys[(int)keyColor]++;
-        Debug.Log($"Red: {keys[0]}, Green: {keys[1]}, Blue: {keys[2]}");
+        if (keyColor == KeyColor.Red)
+        {
+            redKeyText.text = keys[(int)keyColor].ToString();
+        }
+        else if (keyColor == KeyColor.Green)
+        {
+            greenKeyText.text = keys[(int)keyColor].ToString();
+        }
+        else if (keyColor == KeyColor.Blue)
+        {
+            blueKeyText.text = keys[(int)keyColor].ToString();
+        }
     }
 
     public void AddPoints(int pointsToAdd)
     {
         points += pointsToAdd;
+        pointText.text = points.ToString();
     }
     public void AddTime(int timeToAdd)
     {
         timeToEnd += timeToAdd;
-        Debug.Log($"{points}");
+       timeText.text = timeToEnd.ToString();
     }
     public void FreezeTime(int FrizzeFor)
     {
         CancelInvoke(nameof(Stopper));
+        snowflake.enabled = true;
         InvokeRepeating(nameof(Stopper), FrizzeFor, 1);
+    }
+    public void SetUseInfo(string info)
+    {
+        useInfo.text = info;
     }
     private void Awake()
     {
@@ -71,6 +101,13 @@ public class GameManager : MonoBehaviour
     {
         gameEnded = false;
         gameWon = false;
+
+        snowflake.enabled = false;
+        timeText.text = timeToEnd.ToString();
+        infoPanel.SetActive(false);
+        infoText.text = "Pause";
+        reloadInfo.text = "";
+        useInfo.text = "";
 
         audioSorce = GetComponent<AudioSource>();
 
@@ -102,19 +139,22 @@ public class GameManager : MonoBehaviour
         if(gameWon)
         {
             PlayClip(winClip);
-            Debug.Log("You won!");
+            infoText.text = "You won!";
+            reloadInfo.text = "Press R to reload the game";
         }
         else
         {
             PlayClip(loseClip);
-            Debug.Log("You lost!");
+            infoText.text = "You lost!";
+            reloadInfo.text = "Press R to reload the game";
         }
     }
 
     private void Stopper()
     {
         timeToEnd--;
-        Debug.Log($"Time: {timeToEnd} s");
+        timeText.text = timeToEnd.ToString();
+        snowflake.enabled = false;
 
         if (timeToEnd <= 0)
         {
@@ -142,7 +182,7 @@ public class GameManager : MonoBehaviour
     public void PauseGame()
     {
         PlayClip(pauseClip);
-        Debug.Log("Game Paused");
+        infoPanel.SetActive(true);
         Time.timeScale = 0;
         gamePaused = true;
     }
@@ -150,7 +190,7 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         PlayClip(resumeClip);
-        Debug.Log("Game Resumed");
+        infoPanel.SetActive(false);
         Time.timeScale = 1;
         gamePaused = false;
     }

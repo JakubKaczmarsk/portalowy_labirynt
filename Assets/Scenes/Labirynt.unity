@@ -13851,7 +13851,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Test
+  m_Text: Press p to pay
 --- !u!222 &497103792
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -37005,7 +37005,7 @@ GameObject:
   - component: {fileID: 1247829519}
   - component: {fileID: 1247829518}
   m_Layer: 5
-  m_Name: Text
+  m_Name: GreenKeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39187,7 +39187,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1327674302
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44185,7 +44185,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: New Text
+  m_Text: Win!!!
 --- !u!222 &1508169778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -49736,6 +49736,16 @@ MonoBehaviour:
   winClip: {fileID: 0}
   loseClip: {fileID: 0}
   musicScript: {fileID: 0}
+  timeText: {fileID: 0}
+  pointText: {fileID: 0}
+  redKeyText: {fileID: 0}
+  greenKeyText: {fileID: 0}
+  blueKeyText: {fileID: 0}
+  snowflake: {fileID: 0}
+  infoPanel: {fileID: 0}
+  infoText: {fileID: 0}
+  reloadInfo: {fileID: 0}
+  useInfo: {fileID: 0}
 --- !u!1 &1664168527
 GameObject:
   m_ObjectHideFlags: 0
@@ -56185,7 +56195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1886017086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -56778,7 +56788,7 @@ GameObject:
   - component: {fileID: 1901056155}
   - component: {fileID: 1901056154}
   m_Layer: 5
-  m_Name: Text
+  m_Name: RedKeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -61235,7 +61245,7 @@ GameObject:
   - component: {fileID: 2011276308}
   - component: {fileID: 2011276307}
   m_Layer: 5
-  m_Name: Text
+  m_Name: BlueKeyText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
