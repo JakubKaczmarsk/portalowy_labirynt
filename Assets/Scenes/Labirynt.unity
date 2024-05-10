@@ -2658,7 +2658,7 @@ GameObject:
   - component: {fileID: 103544713}
   - component: {fileID: 103544712}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Win
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
