@@ -27,7 +27,8 @@ public class Lock : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canOpen = true;
-            GameManager.instance.SetUseInfo("Press E to open lock");
+            if (!locked)
+                GameManager.instance.SetUseInfo("Press E to open lock");
         }
     }
     private void OnTriggerExit(Collider other)

@@ -13,9 +13,12 @@ public class MusicScript : MonoBehaviour
     [SerializeField]
     private int activeClipIndex = 0;
 
+    private void Awake()
+    {
+        audioSorce = GetComponent<AudioSource>();
+    }
     private void Start()
     {
-        audioSorce= GetComponent<AudioSource>();
         audioSorce.clip = audioClips[activeClipIndex];
         audioSorce.Play();
     }

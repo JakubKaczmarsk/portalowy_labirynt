@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -208,5 +209,27 @@ public class GameManager : MonoBehaviour
                 PauseGame();
             }
         }
+    }
+    private void FixedUpdate()
+    {
+        PauseCheck();
+        if (gameEnded)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneManager.LoadScene("Labirynt");
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                Application.Quit();
+            }
+        }
+    }
+
+    public void WinGame()
+    {
+        gameWon = true;
+        gameEnded = true;
     }
 }
